@@ -1,0 +1,13 @@
+Sub SaveAsPDF()
+    Dim FilePath As String
+    Dim WorkbookName As String
+ 
+    WorkbookName = Left(ActiveWorkbook.Name, InStrRev(ActiveWorkbook.Name, ".") - 1)
+
+    FilePath = ActiveWorkbook.Path & "\" & WorkbookName & ".pdf"
+
+    ActiveWorkbook.ExportAsFixedFormat Type:=xlTypePDF, Filename:=FilePath, Quality:=xlQualityStandard, IncludeDocProperties:=True, IgnorePrintAreas:=False
+    
+    MsgBox "PDF saved at " & FilePath
+End Sub
+
